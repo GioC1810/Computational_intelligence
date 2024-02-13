@@ -3,11 +3,16 @@ import random
 from collections import defaultdict
 from copy import deepcopy
 
+import joblib
 import numpy as np
 import matplotlib.pyplot as plt
 
 from exam.game import Player, Move, Game
 from exam.utils import Utilities
+
+class NoAddMissingKeysDict(defaultdict):
+    def __missing__(self, key):
+        return self.default_factory()
 
 
 class MonteCarloPlayer(Player):
@@ -18,7 +23,7 @@ class MonteCarloPlayer(Player):
         self.discount_rate = discount_rate
         self.min_exploration_rate = min_exploration_rate
         self.states_traversed = []
-        self.state_value = defaultdict(float)
+        self.state_value = NoAddMissingKeysDict(float)
         self.wins = 0
         self.win_rates = []
 
@@ -45,12 +50,10 @@ class MonteCarloPlayer(Player):
         return action, next_state
 
     def save_q_table(self, file_path):
-        with open(file_path, 'wb') as f:
-            pickle.dump(self.state_value, f)
+        joblib.dump(self.state_value, file_path)
 
     def load_q_table(self, file_path):
-        with open(file_path, 'rb') as f:
-            self.state_value = pickle.load(f)
+        self.state_value = joblib.load(file_path)
 
     def update_q_table(self, game_reward):
         reward = game_reward

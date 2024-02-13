@@ -5,8 +5,8 @@ import numpy as np
 
 from exam.game import Move, Game
 
-MC_TABLE_FIRST = "mc_first.pkl"
-MC_TABLE_SECOND = "mc_second.pkl"
+MC_TABLE_FIRST = "mc_first.pkl.gz"
+MC_TABLE_SECOND= "mc_second.pkl.gz"
 
 TRANSFORMATIONS = [
         (0, None),  # No transformation
