@@ -49,7 +49,6 @@ class Utilities():
 
     @staticmethod
     def convert_string_to_array(state_str) -> np.ndarray:
-        # Convert string to numpy array
         arr = np.array(list(map(int, state_str)))
 
         arr = arr.reshape((5, 5))
@@ -72,10 +71,8 @@ class Utilities():
     def apply_symmetry(state_str, rotations=0, reflection_axis=None):
         state_np = np.array([int(char) for char in state_str])
 
-        # Apply rotations
         state_np = Utilities.apply_rotation(state_np, rotations)
 
-        # Apply reflection if specified
         if reflection_axis is not None:
             state_np = Utilities.apply_reflection(state_np, axis=reflection_axis)
 
@@ -110,11 +107,9 @@ class Utilities():
         canonical_action = action
         rotations, reflection_axis = transformations
 
-        # Reverse the reflection if it was applied
         if reflection_axis is not None:
             canonical_action = Utilities.reverse_reflection(canonical_action, reflection_axis)
 
-        # Reverse the rotations
         for _ in range(rotations % 4):
             canonical_action = Utilities.reverse_rotation(canonical_action)
 
@@ -122,7 +117,7 @@ class Utilities():
 
     @staticmethod
     def reverse_reflection(action, axis):
-        if axis == 1:  # Reflection along the vertical axis
+        if axis == 1:
             from_pos = (action[0][0], 4 - action[0][1])
             if action[1] in [Move.TOP, Move.BOTTOM]:
                 return (from_pos, action[1])
@@ -132,7 +127,7 @@ class Utilities():
                 else:
                     move = Move.LEFT
                 return (from_pos, move)
-        elif axis == 0:  # Reflection along the horizontal axis
+        elif axis == 0:
             from_pos = (4 - action[0][0], action[0][1])
             if action[1] in [Move.LEFT, Move.RIGHT]:
                 return (from_pos, action[1])
