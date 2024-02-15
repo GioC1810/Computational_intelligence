@@ -66,6 +66,7 @@ class MinMaxPlayer(Player):
         else:
             score = 0
             board = game.get_board()
+            # Check rows
             for row in board:
                 player_cells = np.sum(row == player_id)
                 if player_cells == 4:
