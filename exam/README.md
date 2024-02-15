@@ -10,7 +10,7 @@ Gameplay:
 * The game alternates until a player achieves a line of five of their cubes in a row.
 
 ## Players 
-### Monte carlo player
+### Monte carlo agent
 It is a reinforcement learning agent based on a Monte Carlo technique that use a method called Temporal Difference method
 To reduce the size of the table I created a dictionary based on 'defaultdict' but that overrides the __missing method that does not add a 
 new key if it is not found to drastically reduce the final size of the q table
