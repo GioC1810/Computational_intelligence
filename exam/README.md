@@ -1,5 +1,5 @@
 
-# Quixo exam
+# Quixo project
 Quixo is a game similar to tic-tac-toe, but with a 5x5 board and a different set of rules. 
 The goal of Quixo is to be the first player to create a line of five of their own cubes, either horizontally, vertically, or diagonally.
 Gameplay:
