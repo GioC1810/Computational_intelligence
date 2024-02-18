@@ -21,7 +21,7 @@ More info about formula update, training and parameters can be found in the mc_a
 The agent uses the minmax algorithm with alpha-beta pruning to make the best move. 
 To reduce the computational aspect and the efficiency of the algorithm i decide to limit the maximum depth to 2 since the result are very good (almost 100% of win rate against a random player)
 The agent uses a heuristic to evaluate the board and make the best move. 
-The heuristic is based on the number of possible lines composed by 3 or 4 cubes, gives a score to the number of line with these characteristics.
+The heuristic is based on the number of possible lines composed by 3 or 4 cubes of the given player, gives a score to the number of line with these characteristics.
 
 ### Q learning agent
 I tried initially to develop an agent that uses a vanilla q learning approach.
