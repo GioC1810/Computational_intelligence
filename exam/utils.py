@@ -155,12 +155,12 @@ class Utilities():
         return state_transitions
 
     @staticmethod
-    def play_game_with_random(player1, player2, first_player=True):
+    def play_game_with_random(player1, player2):
         game = Game()
-        player1.player_number = 1 if first_player else 2
-        player2.player_number = 2 if first_player else 1
+        player1.player_number = 1
+        player2.player_number = 2
         players = [player1, player2]
-        turn = 0 if first_player else 1
+        turn = 0
         counter = 0
         while game.check_winner() == -1 and counter < 200:
             move = players[turn].make_move(game)

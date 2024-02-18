@@ -15,7 +15,7 @@ It is a reinforcement learning agent based on a Monte Carlo technique that use a
 To reduce the size of the table I created a dictionary based on 'defaultdict' but that overrides the __missing method that does not add a 
 new key if it is not found to drastically reduce the final size of the q table
 In addition to that i also employ some transformations on the board state to reduce the number of states to be stored in the table
-More info about formula update, training and parameters can be found in the mc_agent_training jupyter notebook
+More info about formula update, training and parameters can be found in the mc_agent_training notebook
 
 ### MinMax agent
 The agent uses the minmax algorithm with alpha-beta pruning to make the best move. 
@@ -28,6 +28,9 @@ I tried initially to develop an agent that uses a vanilla q learning approach.
 Since the state space is very large I tried to reduce the number of them using some symmetries to reduce every state to its canonical form
 Despite that the performance of the agent was very poor (just a little more than 50%) and the table was too large and not portable (about 19GB) 
 so I don't include the training and the results
+
+## Results
+The final results are in the 'results' notebook
 
 ## Resource used
 * [Reinforcement Learning: An Inreoduction by Richard S. Sutton and Andrew G. Barto](http://incompleteideas.net/book/RLbook2018.pdf)
